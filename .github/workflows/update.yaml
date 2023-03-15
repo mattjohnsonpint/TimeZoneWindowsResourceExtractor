@@ -1,4 +1,4 @@
-name: build
+name: Update Data
 
 on:
   push:
@@ -12,8 +12,8 @@ env:
   DOTNET_NOLOGO: 1
 
 jobs:
-  build:
-    name: Build
+  update-data:
+    name: Update Data
     runs-on: windows-latest
 
     steps:
