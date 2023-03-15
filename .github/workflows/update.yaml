@@ -1,0 +1,79 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_NOLOGO: 1
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build TZResScraper
+        run: dotnet build -c Release --nologo
+
+      # - run: Install-Language ar-SA -ExcludeFeatures
+      # - run: Install-Language bg-BG -ExcludeFeatures
+      # - run: Install-Language ca-ES -ExcludeFeatures
+      # - run: Install-Language cs-CZ -ExcludeFeatures
+      # - run: Install-Language da-DK -ExcludeFeatures
+      # - run: Install-Language de-DE -ExcludeFeatures
+      # - run: Install-Language el-GR -ExcludeFeatures
+      # - run: Install-Language en-GB -ExcludeFeatures
+      # - run: Install-Language en-US -ExcludeFeatures
+      # - run: Install-Language es-ES -ExcludeFeatures
+      - run: Install-Language es-MX -ExcludeFeatures
+      # - run: Install-Language et-EE -ExcludeFeatures
+      # - run: Install-Language eu-ES -ExcludeFeatures
+      # - run: Install-Language fi-FI -ExcludeFeatures
+      # - run: Install-Language fr-CA -ExcludeFeatures
+      - run: Install-Language fr-FR -ExcludeFeatures
+      # - run: Install-Language gl-ES -ExcludeFeatures
+      # - run: Install-Language he-IL -ExcludeFeatures
+      # - run: Install-Language hr-HR -ExcludeFeatures
+      # - run: Install-Language hu-HU -ExcludeFeatures
+      # - run: Install-Language id-ID -ExcludeFeatures
+      # - run: Install-Language it-IT -ExcludeFeatures
+      # - run: Install-Language ja-JP -ExcludeFeatures
+      # - run: Install-Language ko-KR -ExcludeFeatures
+      # - run: Install-Language lt-LT -ExcludeFeatures
+      # - run: Install-Language lv-LV -ExcludeFeatures
+      # - run: Install-Language nb-NO -ExcludeFeatures
+      # - run: Install-Language nl-NL -ExcludeFeatures
+      # - run: Install-Language pl-PL -ExcludeFeatures
+      # - run: Install-Language pt-BR -ExcludeFeatures
+      # - run: Install-Language pt-PT -ExcludeFeatures
+      # - run: Install-Language ro-RO -ExcludeFeatures
+      # - run: Install-Language ru-RU -ExcludeFeatures
+      # - run: Install-Language sk-SK -ExcludeFeatures
+      # - run: Install-Language sl-SI -ExcludeFeatures
+      # - run: Install-Language sr-Latn-RS -ExcludeFeatures
+      # - run: Install-Language sv-SE -ExcludeFeatures
+      # - run: Install-Language th-TH -ExcludeFeatures
+      # - run: Install-Language tr-TR -ExcludeFeatures
+      # - run: Install-Language uk-UA -ExcludeFeatures
+      # - run: Install-Language vi-VN -ExcludeFeatures
+      # - run: Install-Language zh-CN -ExcludeFeatures
+      # - run: Install-Language zh-TW -ExcludeFeatures
+
+      - name: Run TZScraper
+        run: TZResScraper\bin\Release\net6\TZResScraper.exe
+      
+      - name: Commit Results
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add TZResScraper\tzinfo.json
+          git commit -m "Updated Results File"
+          git push
