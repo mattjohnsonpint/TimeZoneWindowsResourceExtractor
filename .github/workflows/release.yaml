@@ -17,14 +17,14 @@ jobs:
     runs-on: windows-2025
 
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # - name: Build TZResScraper
-      #   run: dotnet build -c Release --nologo
+      - name: Build TZResScraper
+        run: dotnet build -c Release --nologo
 
-      - name: Install es-MX
-        run: Install-Language es-MX -ExcludeFeatures -Verbose
+      # - name: Install es-MX
+      #   run: Install-Language es-MX -ExcludeFeatures -Verbose
 
       #     # Install-Language ar-SA -ExcludeFeatures
       #     # Install-Language bg-BG -ExcludeFeatures
@@ -70,12 +70,12 @@ jobs:
       #     # Install-Language zh-CN -ExcludeFeatures
       #     # Install-Language zh-TW -ExcludeFeatures
 
-      # - name: Collect Display Names
-      #   run: dotnet run -c Release --no-build --no-restore --nologo
-      #   working-directory: TZResScraper
+      - name: Collect Display Names
+        run: dotnet run -c Release --no-build --no-restore --nologo
+        working-directory: TZResScraper
 
-      # - name: Release Data
-      #   uses: softprops/action-gh-release@v2
-      #   with:
-      #     files: TZResScraper\tzinfo.json
+      - name: Release Data
+        uses: softprops/action-gh-release@v2
+        with:
+          files: TZResScraper\tzinfo.json
       
