@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build TZResScraper
-        run: dotnet build -c Release --nologo
+        run: dotnet build -c Release -nologo
 
       # - name: Install es-MX
       #   run: Install-Language es-MX -ExcludeFeatures -Verbose
@@ -71,7 +71,7 @@ jobs:
       #     # Install-Language zh-TW -ExcludeFeatures
 
       - name: Collect Display Names
-        run: dotnet run -c Release --no-build --no-restore --nologo
+        run: dotnet run -c Release --no-build -nologo
         working-directory: TZResScraper
 
       - name: Release Data
