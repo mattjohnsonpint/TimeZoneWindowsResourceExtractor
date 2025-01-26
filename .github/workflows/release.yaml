@@ -66,7 +66,7 @@ jobs:
       #     # Install-Language zh-TW -ExcludeFeatures
 
       - name: Collect Display Names
-        run: dotnet run --project TZResScraper/TZResScraper.csproj -c Release --nologo --no-build
+        run: dotnet run --project TZResScraper/TZResScraper.csproj -c Release --no-build
 
       - name: Release Data
         uses: softprops/action-gh-release@v2
