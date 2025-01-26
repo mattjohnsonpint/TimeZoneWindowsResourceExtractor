@@ -23,54 +23,57 @@ jobs:
       # - name: Build TZResScraper
       #   run: dotnet build -c Release --nologo
 
-      - name: Install Languages
+      - name: Get Installed Languages
         shell: pwsh
-        run: |
-          Get-Module -ListAvailable
-          Import-Module LanguagePackManagement
-          # Install-Language ar-SA -ExcludeFeatures
-          # Install-Language bg-BG -ExcludeFeatures
-          # Install-Language ca-ES -ExcludeFeatures
-          # Install-Language cs-CZ -ExcludeFeatures
-          # Install-Language da-DK -ExcludeFeatures
-          # Install-Language de-DE -ExcludeFeatures
-          # Install-Language el-GR -ExcludeFeatures
-          # Install-Language en-GB -ExcludeFeatures
-          # Install-Language en-US -ExcludeFeatures
-          # Install-Language es-ES -ExcludeFeatures
-          Install-Language es-MX -ExcludeFeatures
-          # Install-Language et-EE -ExcludeFeatures
-          # Install-Language eu-ES -ExcludeFeatures
-          # Install-Language fi-FI -ExcludeFeatures
-          # Install-Language fr-CA -ExcludeFeatures
-          Install-Language fr-FR -ExcludeFeatures
-          # Install-Language gl-ES -ExcludeFeatures
-          # Install-Language he-IL -ExcludeFeatures
-          # Install-Language hr-HR -ExcludeFeatures
-          # Install-Language hu-HU -ExcludeFeatures
-          # Install-Language id-ID -ExcludeFeatures
-          # Install-Language it-IT -ExcludeFeatures
-          # Install-Language ja-JP -ExcludeFeatures
-          # Install-Language ko-KR -ExcludeFeatures
-          # Install-Language lt-LT -ExcludeFeatures
-          # Install-Language lv-LV -ExcludeFeatures
-          # Install-Language nb-NO -ExcludeFeatures
-          # Install-Language nl-NL -ExcludeFeatures
-          # Install-Language pl-PL -ExcludeFeatures
-          # Install-Language pt-BR -ExcludeFeatures
-          # Install-Language pt-PT -ExcludeFeatures
-          # Install-Language ro-RO -ExcludeFeatures
-          # Install-Language ru-RU -ExcludeFeatures
-          # Install-Language sk-SK -ExcludeFeatures
-          # Install-Language sl-SI -ExcludeFeatures
-          # Install-Language sr-Latn-RS -ExcludeFeatures
-          # Install-Language sv-SE -ExcludeFeatures
-          # Install-Language th-TH -ExcludeFeatures
-          # Install-Language tr-TR -ExcludeFeatures
-          # Install-Language uk-UA -ExcludeFeatures
-          # Install-Language vi-VN -ExcludeFeatures
-          # Install-Language zh-CN -ExcludeFeatures
-          # Install-Language zh-TW -ExcludeFeatures
+        run: Get-InstalledLanguage
+
+      # - name: Install Languages
+      #   shell: pwsh
+      #   run: |
+      #     # Import-Module LanguagePackManagement
+      #     # Install-Language ar-SA -ExcludeFeatures
+      #     # Install-Language bg-BG -ExcludeFeatures
+      #     # Install-Language ca-ES -ExcludeFeatures
+      #     # Install-Language cs-CZ -ExcludeFeatures
+      #     # Install-Language da-DK -ExcludeFeatures
+      #     # Install-Language de-DE -ExcludeFeatures
+      #     # Install-Language el-GR -ExcludeFeatures
+      #     # Install-Language en-GB -ExcludeFeatures
+      #     # Install-Language en-US -ExcludeFeatures
+      #     # Install-Language es-ES -ExcludeFeatures
+      #     # Install-Language es-MX -ExcludeFeatures
+      #     # Install-Language et-EE -ExcludeFeatures
+      #     # Install-Language eu-ES -ExcludeFeatures
+      #     # Install-Language fi-FI -ExcludeFeatures
+      #     # Install-Language fr-CA -ExcludeFeatures
+      #     # Install-Language fr-FR -ExcludeFeatures
+      #     # Install-Language gl-ES -ExcludeFeatures
+      #     # Install-Language he-IL -ExcludeFeatures
+      #     # Install-Language hr-HR -ExcludeFeatures
+      #     # Install-Language hu-HU -ExcludeFeatures
+      #     # Install-Language id-ID -ExcludeFeatures
+      #     # Install-Language it-IT -ExcludeFeatures
+      #     # Install-Language ja-JP -ExcludeFeatures
+      #     # Install-Language ko-KR -ExcludeFeatures
+      #     # Install-Language lt-LT -ExcludeFeatures
+      #     # Install-Language lv-LV -ExcludeFeatures
+      #     # Install-Language nb-NO -ExcludeFeatures
+      #     # Install-Language nl-NL -ExcludeFeatures
+      #     # Install-Language pl-PL -ExcludeFeatures
+      #     # Install-Language pt-BR -ExcludeFeatures
+      #     # Install-Language pt-PT -ExcludeFeatures
+      #     # Install-Language ro-RO -ExcludeFeatures
+      #     # Install-Language ru-RU -ExcludeFeatures
+      #     # Install-Language sk-SK -ExcludeFeatures
+      #     # Install-Language sl-SI -ExcludeFeatures
+      #     # Install-Language sr-Latn-RS -ExcludeFeatures
+      #     # Install-Language sv-SE -ExcludeFeatures
+      #     # Install-Language th-TH -ExcludeFeatures
+      #     # Install-Language tr-TR -ExcludeFeatures
+      #     # Install-Language uk-UA -ExcludeFeatures
+      #     # Install-Language vi-VN -ExcludeFeatures
+      #     # Install-Language zh-CN -ExcludeFeatures
+      #     # Install-Language zh-TW -ExcludeFeatures
 
       - name: Collect Display Names
         run: dotnet run -c Release --no-build --no-restore --nologo
