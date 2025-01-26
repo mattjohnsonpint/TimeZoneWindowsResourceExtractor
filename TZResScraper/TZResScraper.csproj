@@ -3,7 +3,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>TZResScraper</RootNamespace>
     <AssemblyName>TZResScraper</AssemblyName>
-    <TargetFramework>net6</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 </Project>
