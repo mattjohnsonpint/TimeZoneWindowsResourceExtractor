@@ -26,7 +26,6 @@ jobs:
       - name: Install Languages
         shell: pwsh
         run: |
-          Import-Module LanguagePackManagement
           # Install-Language ar-SA -ExcludeFeatures
           # Install-Language bg-BG -ExcludeFeatures
           # Install-Language ca-ES -ExcludeFeatures
