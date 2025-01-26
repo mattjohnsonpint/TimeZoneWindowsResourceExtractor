@@ -17,15 +17,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # - name: Checkout
+      #   uses: actions/checkout@v4
 
-      - name: Build TZResScraper
-        run: dotnet build -c Release --nologo
+      # - name: Build TZResScraper
+      #   run: dotnet build -c Release --nologo
 
       - name: Install Languages
         shell: pwsh
         run: |
+          Get-Module -ListAvailable
+          Import-Module LanguagePackManagement
           # Install-Language ar-SA -ExcludeFeatures
           # Install-Language bg-BG -ExcludeFeatures
           # Install-Language ca-ES -ExcludeFeatures
