@@ -66,11 +66,10 @@ jobs:
       #     # Install-Language zh-TW -ExcludeFeatures
 
       - name: Collect Display Names
-        run: dotnet run -c Release --no-build -nologo
-        working-directory: TZResScraper
+        run: dotnet run --project TZResScraper/TZResScraper -c Release --nologo --no-build
 
       - name: Release Data
         uses: softprops/action-gh-release@v2
         with:
-          files: TZResScraper\tzinfo.json
+          files: tzinfo.json
       
